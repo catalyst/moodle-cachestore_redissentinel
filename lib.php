@@ -168,11 +168,11 @@ class cachestore_redissentinel extends cache_store implements cache_is_key_aware
             $port = $serverconf[1];
         }
         if ($redis->pconnect($server, $port, $this->connecttimeout)) {
-            if (extension_loaded('igbinary')) {
-                $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_IGBINARY);
-            } else {
-                $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
-            }
+
+            // Force PHP serializer and set new cache key to avoid previous usage of igbinary which caused segfaults
+            $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
+            $prefix = "$prefix:cache:";
+
 
             if (!empty($prefix)) {
                 $redis->setOption(Redis::OPT_PREFIX, $prefix);
