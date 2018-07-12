@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version    = 2016120500;
-$plugin->requires   = 2016112900; // Requires this Moodle version (3.0.4).
+$plugin->requires   = 2017111300; // Requires 3.4. (contains PHP 7 code.)
 $plugin->maturity   = MATURITY_STABLE;
 $plugin->component  = 'cachestore_redissentinel';
 $plugin->release    = '3.0.4 (Build: 20160509)';

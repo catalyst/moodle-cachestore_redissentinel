@@ -35,3 +35,6 @@ $string['test_server_desc'] = 'Redis server to use for testing.';
 $string['server'] = 'Sentinel Servers';
 $string['server_help'] = 'Comma delimited list of sentinel servers';
 $string['master_group'] = 'Sentinel Group';
+$string['privacy:privacy:metadata:redissentinel'] = '';
+$string['privacy:metadata:redissentinel'] = 'The Redis cachestore plugin stores data briefly as part of its caching functionality. This data is stored on an Redis server where data is regularly removed.';
+$string['privacy:metadata:redissentinel:data'] = 'The various data stored in the cache';
