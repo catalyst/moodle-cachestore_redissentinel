@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir.'/redis/sentinel.php');
+require_once('sentinel.php');
 
 /**
  * Redis Cache Store
@@ -142,7 +142,7 @@ class cachestore_redissentinel extends cache_store implements cache_is_key_aware
             $server = $master->ip.':'.$master->port;
 
         } catch(Exception $e) {
-            debugging('Unable to connect to Redis Sentinel serves: '.$configuration['server'], DEBUG_ALL);
+            debugging('Unable to connect to Redis Sentinel servers: '.$configuration['server'], DEBUG_ALL);
             return;
         }
 
