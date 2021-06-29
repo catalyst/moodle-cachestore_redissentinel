@@ -24,8 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once('sentinel.php');
-
 /**
  * Redis Cache Store
  *
@@ -136,7 +134,7 @@ class cachestore_redissentinel extends cache_store implements cache_is_key_aware
 
         $servers = explode(',',$configuration['server']);
         try {
-            $sentinel = new \sentinel($servers);
+            $sentinel = new \cachestore_redissentinel\sentinel($servers);
 
             $master = $sentinel->get_master_addr($configuration['master_group']);
             $server = $master->ip.':'.$master->port;
